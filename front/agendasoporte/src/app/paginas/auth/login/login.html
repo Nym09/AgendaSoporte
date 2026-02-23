@@ -1,0 +1,14 @@
+<div class="cont">
+    <div class="container">
+        <div class="heading">Dosblokes</div>
+
+        <form [formGroup]="login" (ngSubmit)="submit()">
+
+            <input placeholder="E-mail" type="email" class="input" formControlName="email"/>
+            <input placeholder="Password" type="password" class="input" formControlName="password">
+
+            <input value="Sign In" type="submit" class="login-button" />
+        </form>
+
+    </div>
+</div>
