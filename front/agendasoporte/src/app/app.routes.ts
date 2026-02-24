@@ -1,15 +1,10 @@
 import { Routes } from '@angular/router';
-import { Login } from './paginas/auth/login/login';
-import { Inicio } from './paginas/inicio/inicio';
+import { Login } from './login/login';
+import { Inicio } from './inicio/inicio';
 
 export const routes: Routes = [
-    {
-        path: '',
-        component:Login
-    },
-    {
-        path:'inicio',
-        component:Inicio
-    }
+    {path: '',component:Login},
+    {path:'inicio',component:Inicio},
+    {path:'**',component:Login}
 
 ];

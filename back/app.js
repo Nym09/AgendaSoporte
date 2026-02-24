@@ -8,7 +8,10 @@ const path = require('path');
 const authRoutes = require('./routes/loginroutes');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: ['http://localhost:4200','http://192.168.101.73:4200'],
+    credentials:true
+}));
 
 const port = process.env.PORT || 3000;
 
