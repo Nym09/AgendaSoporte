@@ -1,0 +1,53 @@
+<div class=" py-5">
+    <div class="row justify-content-center align-items-center g-4 ">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <h3 class="text-center">Registrar Usuario</h3>
+
+                    <form [formGroup]="registerForm" (ngSubmit)="submit()">
+                        <div class="mb-3">
+                            <input type="text" placeholder="Nombre" class="form-control" formControlName="name">
+                        </div>
+
+
+                        <div class="mb-3">
+                            <input placeholder="E-mail" type="email" class="form-control" formControlName="email" />
+                        </div>
+                        <div *ngIf="registerForm.get('email')?.errors?.['email'] && registerForm.get('email')?.touched" class="text-danger">
+                            Email no válido
+                        </div>
+
+
+                        <div class="mb-3">
+                            <input placeholder="Password" type="password" class="form-control"
+                                formControlName="password">
+                        </div>
+                        <div *ngIf="registerForm.get('password')?.errors?.['minlength'] && registerForm.get('password')?.touched"
+                            class="text-danger">
+                            <p>La contraseña debe tener mínimo 6 caracteres</p>
+                        </div>
+
+
+                        <div class="mb-4">
+                            <select class="form-select" name="rol" formControlName="rol">
+                                <option selected disabled>Seleccione un rol</option>
+                                <option *ngFor="let rol of roles" [value]="rol.id_rol"> {{rol.name}} </option>
+                            </select>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid"> Registrar </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-6">
+            
+        </div>
+    </div>
+</div>

@@ -8,9 +8,7 @@ import { Loginservice } from '../login/loginservice';
   styleUrl: './inicio.css',
 })
 export class Inicio {
-  constructor(private loginservice:Loginservice){
-
-  }
+  constructor(private loginservice:Loginservice){}
 
   ngOnInit(){
     this.loginservice.iniciosesion().subscribe({

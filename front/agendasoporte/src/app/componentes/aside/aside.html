@@ -1,1 +1,21 @@
-<p>aside works!</p>
+<mat-sidenav-container class="cont">
+  <mat-sidenav #sidenav mode="side" opened="false" class="sidenav">
+
+    <div class="d-flex flex-column h-100">
+
+      <app-custom-sidenav />
+
+      <button class="btn mt-auto mb-3 " (click)="logout()">
+        Cerrar sesión
+      </button>
+
+    </div>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content class="content">
+    <app-header (toggle)="sidenav.toggle()" />
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

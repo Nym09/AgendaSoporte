@@ -5,11 +5,11 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const path = require('path');
 
-const authRoutes = require('./routes/loginroutes');
+const authRoutes = require('./routes/routes');
 
 const app = express();
 app.use(cors({
-    origin: ['http://localhost:4200','http://192.168.101.73:4200'],
+    origin: ['http://localhost:4200'],
     credentials:true
 }));
 

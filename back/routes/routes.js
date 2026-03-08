@@ -3,6 +3,8 @@ const router = express.Router();
 const { login } = require('../controllers/logincontroller');
 const verificartoken = require('../middlewares/loginmiddlewares');
 const { usuarioPorId } = require('../models/login');
+const {roles} = require('../models/user');
+const {crearusuario} = require('../controllers/registrousuariocontroller')
 
 router.post('/', login);
 
@@ -22,6 +24,18 @@ router.get('/user', verificartoken, async (req, res) => {
 
     }
 });
+
+router.get('/roles', async (req,res) =>{
+    try{
+        const rol = await roles();
+        res.json(rol);
+    }catch(error){
+        console.error("Error en /roles", error)
+        res.status(500).json({message:"server error"})
+    }
+})
+
+router.post('/registrousuario',crearusuario);
 
 router.post('/finalizarsesion', (req, res) => {
     res.clearCookie("token");

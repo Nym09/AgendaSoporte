@@ -32,7 +32,8 @@ export class Login {
       next: (data: LoginResponse) => {
         console.log(data);
 
-        if (data.status === "Success") {
+        if (data.status === "Success") {7
+          localStorage.setItem('auth','true');
           this.router.navigate(["/inicio"]);
         }
       },
