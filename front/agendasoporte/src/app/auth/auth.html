@@ -1,0 +1,16 @@
+<div class="container-full">
+    <div class="row">
+        <div class="col login">
+            <form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="formu">
+                <h3 class="text-center tit">Agenda Soporte</h3>
+                <input formControlName="email" class="text mb-3 mt-5" pInputText type="email" id="email"
+                    placeholder="Email" name="Email" />
+                <input formControlName="password" class="text mb-3" pInputText type="password" id="password"
+                    placeholder="Password" name="password" />
+
+                <p-button class="w-full d-flex justify-content-center mb-4" [rounded]="true" label="Ingresar"
+                    severity="info" type="submit" />
+            </form>
+        </div>
+    </div>
+</div>

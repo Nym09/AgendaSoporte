@@ -1,23 +1,10 @@
 import { Component } from '@angular/core';
-import { Loginservice } from '../login/loginservice';
+import { Menu } from '../componentes/menu/menu';
 
 @Component({
   selector: 'app-inicio',
-  imports: [],
+  imports: [Menu],
   templateUrl: './inicio.html',
   styleUrl: './inicio.css',
 })
-export class Inicio {
-  constructor(private loginservice:Loginservice){}
-
-  ngOnInit(){
-    this.loginservice.iniciosesion().subscribe({
-      next:(data)=>{
-        console.log(data);
-      },
-      error:(err)=>{
-        console.log(err);
-      }
-    })
-  }
-}
+export class Inicio {}

@@ -1,0 +1,85 @@
+<app-menu />
+
+<div class="container text-center mt-5">
+    <div class="row">
+        <div class="col-12 col-lg-4 mb-5 formulario_registro">
+            <h4 class="mt-3 tit">Formulario de Empleados</h4>
+            <hr>
+            <form [formGroup]="registerForm" class="ms-auto ps-2 py-4 ">
+                <p-float-label class="mb-2 " variant="on">
+                    <input pInputText id="Nombre" autocomplete="off" formControlName="nombre" class="datos" />
+                    <label for="Nombre">Nombre</label>
+                    <br>
+                    <small
+                        *ngIf="registerForm.get('nombre')?.touched && registerForm.get('nombre')?.hasError('required')"
+                        class="text-danger block mt-1 text-start"> El nombre es obligatorio. </small>
+                </p-float-label>
+                <p-float-label class="mb-2" variant="on">
+                    <input pInputText id="Email" autocomplete="off" formControlName="email" class="datos" />
+                    <label for="Email">Email</label>
+                    <br>
+                    <small *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.hasError('required')"
+                        class="text-dangerblock mt-1 text-start"> El email es obligatorio. </small>
+                    <small *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.hasError('email')"
+                        class="text-danger block mt-1 text-start"> Ingrese un email valido </small>
+                </p-float-label>
+                <p-float-label class="mb-2" variant="on">
+                    <input pInputText id="Password" autocomplete="off" formControlName="password" class="datos" />
+                    <label for="Password">Password</label>
+                    <br>
+                    <small
+                        *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.hasError('required')"
+                        class="text-danger block mt-1 text-start"> El password es obligatorio. </small>
+                    <small
+                        *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.hasError('minlength')"
+                        class="text-danger block mt-1 text-start"> El password debe ser de minimo 6 letras</small>
+                </p-float-label>
+                <p-float-label class="mb-5" variant="on">
+                    <p-select optionLabel="name" optionGroupLabel="name" [style]="{ minWidth: '13rem' }"
+                        placeholder="Selecciona un Rol" class="datos" />
+                    <br>
+                    <small *ngIf="registerForm.get('rol')?.touched && registerForm.get('rol')?.hasError('required')"
+                        class="text-danger block mt-1 text-start"> El rol es obligatorio. </small>
+                </p-float-label>
+
+
+                <p-button label="Crear" styleClass="w-full btn btn-primary"></p-button>
+            </form>
+        </div>
+        <div class="col-12 col-lg-8">
+            <div class="card shadow-sm">
+                <p-table>
+                    <ng-template #header>
+                        <tr>
+                            <th style="width: 25%;">N°</th>
+                            <th style="width: 25%;">Nombre</th>
+                            <th style="width: 25%;">Email</th>
+                            <th style="width: 25%;">Rol</th>
+                            <th style="width: 25%;">Password</th>
+                            <th style="width: 25%;">Editar</th>
+                            <th style="width: 25%;">Eliminar</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template #body let-user>
+                        <tr>
+                            <td>{{user.id_user }}</td>
+                            <td>{{user.nombre }}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.role?.name}}</td>
+                            <td>
+                                <i class="pi pi-user-edit" (click)="actualizarUsuario(user.id)">
+                                </i>
+                            </td>
+
+                            <td>
+                                <i class="pi pi-times-circle" (click)="eliminarUsuario(user.id)">
+                                </i>
+                            </td>
+
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+</div>

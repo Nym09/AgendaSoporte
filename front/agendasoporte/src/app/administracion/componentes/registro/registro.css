@@ -1,0 +1,13 @@
+.formulario_registro{
+    background-color: rgb(235, 243, 249);
+    border-radius: 5px;
+    height: 90vh;
+}
+.tit{
+    color: rgb(61, 62, 63);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.datos{
+    width: 100%;
+    border-radius: 25px;
+}
