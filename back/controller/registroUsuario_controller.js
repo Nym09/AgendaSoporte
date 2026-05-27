@@ -1,0 +1,2 @@
+const bcrypt = require('bcrypt');
+const {listar_clientes,listar_clientes_id,buscar_email,crear_cliente,actualizar_cliente,eliminacion_logica_cliente,restaurar_cliente_logico} = require('../models/clientesmdel');
