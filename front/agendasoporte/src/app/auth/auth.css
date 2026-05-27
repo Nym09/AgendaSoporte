@@ -1,0 +1,25 @@
+*{
+   overflow: hidden;
+}
+
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.formu{
+    display: inline-block;
+    justify-content: center;
+    background-color: rgb(240, 248, 255);
+    border-radius: 25px;
+    padding: 3%;
+}
+.tit{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(2, 58, 104);
+}
+.text{
+    width: 100%;
+    border-radius: 25px;
+}
