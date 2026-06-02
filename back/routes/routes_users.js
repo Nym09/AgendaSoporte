@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 
-const verificacion_token = require('../middleware/tokenmiddleware');
+const verificacion_token = require('../middlewares/tokenmiddleware');
 const { listar_empleados, listar_empleado_id, listar_empleado_email,
     crear_empleado, actualizar_empleado, eliminacion_logica_empleado,
     restaurar_empleado_logico } = require('../models/empleadosmodel');
@@ -20,20 +20,6 @@ router.get('/', verificacion_token, async (req, res) => {
 router.get('/id/:id', verificacion_token, async (req, res) => {
     try {
         const empleado = await listar_empleado_id(req.params.id);
-        if (!empleado) {
-            return Http_error(res, 404);
-        }
-
-        return res.status(200).json({ status: 'Exito-Success', data: empleado });
-
-    } catch (error) {
-        return Http_error(res, 500);
-    }
-});
-
-router.get('/email/:email', verificacion_token, async (req, res) => {
-    try {
-        const empleado = await listar_empleado_email(req.params.email);
         if (!empleado) {
             return Http_error(res, 404);
         }

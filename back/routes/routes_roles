@@ -1,0 +1,7 @@
+const express = require('express');
+const router = express.Router();
+const bcrypt = require('bcrypt');
+
+const verificacion_token = require('../middlewares/tokenmiddleware');
+const {listar_roles, listar_roles_id, crear_rol, actualizar_rol, eliminacion_logica_rol} = require('../models/rolesmodels');
+const {Http_error} = require('../utils/err_status')

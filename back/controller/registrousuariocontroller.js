@@ -1,4 +1,7 @@
-const bcrypt = require('bcrypt');
+//CORREGIR ESTO-----------------------------------------
+
+
+/*const bcrypt = require('bcrypt');
 const {registrousuario,emailduplicado} = require('../models/user');
 
 const crearusuario = async(req,res) =>{
@@ -25,5 +28,4 @@ const crearusuario = async(req,res) =>{
         res.status(500).json({message:"error al crear el usuario"})
     }
 }
-
-module.exports = {crearusuario};
+*/

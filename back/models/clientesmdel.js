@@ -10,13 +10,8 @@ const listar_clientes_id = async(id_cliente) =>{
     return rows[0];
 };
 
-const buscar_email = async(email)=>{
-    const [rows] = await pool.query('SELECT id_cliente FROM clientes WHERE email = ?', [email]);
-    return rows.length > 0; 
-};
-
 const crear_cliente = async(nombre,telefono,ciudad,email) =>{
-    const [rows] = await pool.query('INSERT INTO clientes(nombre,telefono,ciudad,email) VALUES (?,?,?,?)',[nombre,telefono,ciudad,email]);
+    const [rows] = await pool.query('INSERT INTO clientes(cedula,nombre,telefono,ciudad,email) VALUES (?,?,?,?)',[nombre,telefono,ciudad,email]);
     return {
         id_cliente: rows.insertId,
         nombre,
@@ -42,7 +37,7 @@ const eliminacion_logica_cliente = async(id_cliente) => {
     const [rows] = await pool.query('UPDATE clientes SET deleteDate = CURRENT_TIMESTAMP WHERE id_cliente = ?',[id_cliente]);
     return {
         eliminacion_logica: rows.affectedRows > 0,
-        id_cliente,
+        id_cliente
     }
 }
 
@@ -51,4 +46,4 @@ const restaurar_cliente_logico = async(id_cliente) =>{
     return rows.affectedRows > 0;
 }
 
-module.exports = {listar_clientes, listar_clientes_id, buscar_email, crear_cliente, actualizar_cliente, eliminacion_logica_cliente, restaurar_cliente_logico}
+module.exports = {listar_clientes, listar_clientes_id, crear_cliente, actualizar_cliente, eliminacion_logica_cliente, restaurar_cliente_logico}
